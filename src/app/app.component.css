@@ -1,0 +1,16 @@
+
+mat-drawer {
+  min-width: 260px;
+  padding: 12px;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.icon-spacer {
+  flex: 1 1 auto;
+}
