@@ -23,3 +23,9 @@ mat-drawer-container{
   position: relative;
   z-index: 2;
 }
+
+
+
+.mat-list-base[dense] .mat-list-item  {
+  font-size: 16px;
+}

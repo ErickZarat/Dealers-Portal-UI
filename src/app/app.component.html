@@ -1,6 +1,6 @@
 
 <mat-toolbar class="mat-elevation-z6" color="primary">
-  <button mat-icon-button  (click)="drawer.toggle()" aria-label="Web Portal Toolbar">
+  <button mat-icon-button  (click)="menuDrawer.toggle()" aria-label="Web Portal Toolbar">
     <mat-icon>menu</mat-icon>
   </button>
   <span>Portal-UI</span>
@@ -17,7 +17,17 @@
 <app-page-header></app-page-header>
 
 <mat-drawer-container hasBackdrop="false">
-  <mat-drawer #drawer mode="side" opened="true">I'm a drawer</mat-drawer>
+  <mat-drawer id="menuDrawer" #menuDrawer mode="side" opened="true">
+
+    <mat-nav-list dense>
+      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/dealers">Dealers</a>
+      <a mat-list-item routerLink="/products">Products</a>
+      <a mat-list-item routerLink="/schedules">Schedules</a>
+      <a mat-list-item routerLink="/authorized_channels">Authorized Channels</a>
+    </mat-nav-list>
+
+  </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
   </mat-drawer-content>

@@ -11,11 +11,23 @@ import { DealersComponent } from './dealers/dealers.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {ComponentHeaderModule} from "./page-header/page-header.component";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductsComponent } from './products/products.component';
+import { UsersComponent } from './users/users.component';
+import { AuthorizedChannelsComponent } from './authorized-channels/authorized-channels.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatListModule} from "@angular/material/list";
+import { SchedulesComponent } from './schedules/schedules.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DealersComponent,
+    DashboardComponent,
+    ProductsComponent,
+    UsersComponent,
+    AuthorizedChannelsComponent,
+    SchedulesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +38,9 @@ import {ComponentHeaderModule} from "./page-header/page-header.component";
     MatButtonModule,
     MatSidenavModule,
     MatButtonToggleModule,
-    ComponentHeaderModule
+    ComponentHeaderModule,
+    MatCardModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
