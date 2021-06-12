@@ -3,7 +3,7 @@
   <button mat-icon-button  (click)="menuDrawer.toggle()" aria-label="Web Portal Toolbar">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Portal-UI</span>
+  <span class="title">Portal-UI</span>
   <span class="icon-spacer"></span>
   <button mat-icon-button class="favorite-icon" aria-label="heart icon">
     <mat-icon>favorite</mat-icon>
@@ -12,7 +12,6 @@
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
-
 
 <app-page-header></app-page-header>
 
@@ -29,6 +28,8 @@
 
   </mat-drawer>
   <mat-drawer-content>
-    <router-outlet></router-outlet>
+    <div class="router-outlet-container">
+      <router-outlet></router-outlet>
+    </div>
   </mat-drawer-content>
 </mat-drawer-container>

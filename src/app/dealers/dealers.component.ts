@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ComponentPageTitleService} from "../page-title/page-title.service";
+import {MatDrawer, MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-dealers',
@@ -8,6 +9,8 @@ import {ComponentPageTitleService} from "../page-title/page-title.service";
 })
 export class DealersComponent implements OnInit {
 
+  @ViewChild('formDrawer') formDrawer: MatDrawer | undefined;
+
   constructor(public _componentPageTitle: ComponentPageTitleService) {
     _componentPageTitle.title = "Dealers";
   }
@@ -15,4 +18,7 @@ export class DealersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openDrawer() {
+    if (this.formDrawer !== undefined) this.formDrawer.open();
+  }
 }

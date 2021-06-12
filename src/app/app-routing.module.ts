@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'authorized_channels', component: AuthorizedChannelsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'users', component: UsersComponent },
-  { path: 'dealers', component: DealersComponent },
+  { path: 'dealers', component: DealersComponent, children: [
+      { path: 'edit', component: SchedulesComponent },
+    ] },
   { path: 'schedules', component: SchedulesComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ]

@@ -26,6 +26,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('portal-ui app is running!');
+    expect(compiled.querySelector('mat-toolbar span.title').textContent).toContain('Portal-UI');
   });
 });
