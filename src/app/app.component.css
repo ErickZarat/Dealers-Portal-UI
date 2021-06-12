@@ -11,6 +11,15 @@ mat-drawer-content {
   align-items: flex-start;
 }
 
+mat-drawer-container{
+  height: 100%;
+}
+
 .icon-spacer {
   flex: 1 1 auto;
+}
+
+.mat-elevation-z6 {
+  position: relative;
+  z-index: 2;
 }

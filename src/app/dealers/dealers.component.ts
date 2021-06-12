@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ComponentPageTitleService} from "../page-title/page-title.service";
 
 @Component({
   selector: 'app-dealers',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DealersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _componentPageTitle: ComponentPageTitleService) {
+    _componentPageTitle.title = "Dealers";
+  }
 
   ngOnInit(): void {
   }

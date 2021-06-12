@@ -10,11 +10,12 @@ import { MatButtonModule } from "@angular/material/button";
 import { DealersComponent } from './dealers/dealers.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {ComponentHeaderModule} from "./page-header/page-header.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    DealersComponent
+    DealersComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    ComponentHeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
