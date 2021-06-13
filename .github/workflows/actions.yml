@@ -2,7 +2,8 @@
 name: CI
 on:
   push:
-    branches: [ main ]
+    branches:
+      - '**'
   pull_request:
     branches: [ main ]
 
@@ -15,9 +16,9 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Determine npm cache directory
-          id: npm-cache
-          run: |
-            echo "::set-output name=dir::$(npm config get cache)"
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
       - name: Restore npm cache
         uses: actions/cache@v2
         with:
