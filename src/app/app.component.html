@@ -1,0 +1,35 @@
+
+<mat-toolbar class="mat-elevation-z6" color="primary">
+  <button mat-icon-button  (click)="menuDrawer.toggle()" aria-label="Web Portal Toolbar">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="title">Portal-UI</span>
+  <span class="icon-spacer"></span>
+  <button mat-icon-button class="favorite-icon" aria-label="heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button aria-label="share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+<app-page-header></app-page-header>
+
+<mat-drawer-container hasBackdrop="false">
+  <mat-drawer id="menuDrawer" #menuDrawer mode="side" opened="true">
+
+    <mat-nav-list dense>
+      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/dealers">Dealers</a>
+      <a mat-list-item routerLink="/products">Products</a>
+      <a mat-list-item routerLink="/schedules">Schedules</a>
+      <a mat-list-item routerLink="/authorized_channels">Authorized Channels</a>
+    </mat-nav-list>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="router-outlet-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

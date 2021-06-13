@@ -1,0 +1,34 @@
+
+mat-drawer {
+  min-width: 260px;
+  padding: 12px;
+}
+
+mat-drawer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+mat-drawer-container{
+  height: 100%;
+}
+
+.icon-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-elevation-z6 {
+  position: relative;
+  z-index: 2;
+}
+
+.mat-list-base[dense] .mat-list-item  {
+  font-size: 16px;
+}
+
+.router-outlet-container {
+  width:100%;
+  height: 100%;
+  float:right;
+}
