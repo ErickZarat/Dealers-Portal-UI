@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {forwardRef, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,11 @@ import { AuthorizedChannelsComponent } from './authorized-channels/authorized-ch
 import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
 import { SchedulesComponent } from './schedules/schedules.component';
+import {UserService} from "./domain/user/user.service";
+import {UserMockService} from "./domain/user/user.mock.service";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {environment} from "../environments/environment";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -32,6 +37,7 @@ import { SchedulesComponent } from './schedules/schedules.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
@@ -41,8 +47,17 @@ import { SchedulesComponent } from './schedules/schedules.component';
     ComponentHeaderModule,
     MatCardModule,
     MatListModule,
+    MatTableModule,
   ],
-  providers: [],
+  providers: [
+    HttpClient,
+    { provide: 'apiEndpoint', useValue: environment.apiEndpoint},
+    {
+      provide: UserService,
+      // useClass: forwardRef(() => {if (environment.apiEndpoint) return UserService; else return UserMockService; })
+      useClass: forwardRef(() => { return environment.apiEndpoint ? UserService : UserMockService; })
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
