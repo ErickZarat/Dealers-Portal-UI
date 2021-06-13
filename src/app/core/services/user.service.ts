@@ -16,22 +16,22 @@ export class UserService implements RestService<User> {
   }
 
   create(user: User): Observable<User> {
-    return this.http.post<User>(`${this.endpoint}/dealer/${user.dealerCode}/user`, user)
+    return this.http.post<User>(`${this.endpoint}/dealer/${user.dealerCode}/users`, user)
   }
 
   delete(code: number): Observable<boolean> {
-    return this.http.delete<boolean>("")
+    return this.http.delete<boolean>(`${this.endpoint}/users/${code}`)
   }
 
   find(dealerCode: number): Observable<User[]> {
-    return this.http.get<Array<User>>("")
+    return this.http.get<Array<User>>(`${this.endpoint}/dealer/${dealerCode}/users`)
   }
 
   findOne(code: number): Observable<User> {
-    return this.http.get<User>("")
+    return this.http.get<User>(`${this.endpoint}/users/${code}`)
   }
 
   update(user: User): Observable<User> {
-    return this.http.put<User>("", user)
+    return this.http.put<User>(`${this.endpoint}/users/${user.code}`, user)
   }
 }
