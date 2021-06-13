@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ComponentPageTitleService} from "../page-title/page-title.service";
-import {MatDrawer, MatSidenav} from "@angular/material/sidenav";
+import {MatDrawer} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-dealers',

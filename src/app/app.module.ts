@@ -7,22 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
-import { DealersComponent } from './dealers/dealers.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {ComponentHeaderModule} from "./page-header/page-header.component";
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductsComponent } from './products/products.component';
-import { UsersComponent } from './users/users.component';
-import { AuthorizedChannelsComponent } from './authorized-channels/authorized-channels.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
-import { SchedulesComponent } from './schedules/schedules.component';
-import {UserService} from "./domain/user/user.service";
-import {UserMockService} from "./domain/user/user.mock.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {MatTableModule} from "@angular/material/table";
+import {DealersComponent} from "./components/dealers/dealers.component";
+import {UsersComponent} from "./components/users/users.component";
+import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {ProductsComponent} from "./components/products/products.component";
+import {AuthorizedChannelsComponent} from "./components/authorized-channels/authorized-channels.component";
+import {SchedulesComponent} from "./components/schedules/schedules.component";
+import {ComponentHeaderModule} from "./components/page-header/page-header.component";
+import {UserService} from "./core/services/user.service";
+import {UserMockService} from "./core/mocks/user.mock.service";
 
 @NgModule({
   declarations: [
@@ -52,11 +52,7 @@ import {MatTableModule} from "@angular/material/table";
   providers: [
     HttpClient,
     { provide: 'apiEndpoint', useValue: environment.apiEndpoint},
-    {
-      provide: UserService,
-      // useClass: forwardRef(() => {if (environment.apiEndpoint) return UserService; else return UserMockService; })
-      useClass: forwardRef(() => { return environment.apiEndpoint ? UserService : UserMockService; })
-    }
+    { provide: UserService, useClass: forwardRef(() => { return environment.apiEndpoint ? UserService : UserMockService; }) }
   ],
   bootstrap: [AppComponent]
 })

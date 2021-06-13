@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ComponentPageTitleService} from "../page-title/page-title.service";
-import {UserService} from "../domain/user/user.service";
+import {UserService} from "../../core/services/user.service";
+
 
 @Component({
   selector: 'app-users',
