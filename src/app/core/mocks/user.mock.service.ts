@@ -7,27 +7,16 @@ import {User} from "../interfaces/User";
   providedIn: 'root'
 })
 export class UserMockService extends UserService {
-
   users: Array<User> = [];
   currentId: number = 0;
 
-  showSource() {
-    console.log("Usign MOCK Service")
-  }
-
-  createObservable<T>(value: T): Observable<T> {
-    return new Observable( observer => {
-      observer.next( value )
-      observer.complete()
-    })
-  }
-
-  create(user: User): Observable<User> {
+  create(user: User, dealerCode: number | null): Observable<User> {
     if (user.code === undefined) {
       user.code = this.currentId++;
     }
+    user.dealerCode = dealerCode
     this.users.push(user);
-    return this.createObservable(user);
+    return of(user);
   }
 
   delete(code: number): Observable<boolean> {
@@ -37,12 +26,12 @@ export class UserMockService extends UserService {
       this.users.splice(idx, 1)
       deleted = true
     }
-    return this.createObservable(deleted);
+    return of(deleted);
   }
 
-  find(dealerCode: number): Observable<User[]> {
+  find(dealerCode: number | null): Observable<User[]> {
     let users: Array<User> = this.users.filter(x => x.dealerCode === dealerCode)
-    return this.createObservable(users);
+    return of(users);
   }
 
   findOne(code: number): Observable<User> {
@@ -55,7 +44,7 @@ export class UserMockService extends UserService {
     if (idx > -1) {
       this.users[idx] = user
     }
-    return this.createObservable(user);
+    return of(user);
   }
 
 }

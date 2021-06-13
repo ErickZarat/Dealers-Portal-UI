@@ -23,6 +23,14 @@ import {SchedulesComponent} from "./components/schedules/schedules.component";
 import {UserMockService} from "./core/mocks/user.mock.service";
 import {ComponentHeaderModule} from "./shared/components/page-header/page-header.component";
 import {UserService} from "./core/services/user/user.service";
+import {AuthorizedChannelService} from "./core/services/authorized-channel/authorized-channel.service";
+import {ProductService} from "./core/services/product/product.service";
+import {ScheduleService} from "./core/services/schedule/schedule.service";
+import {DealerService} from "./core/services/dealer/dealer.service";
+import {AuthorizedChannelMockService} from "./core/mocks/authorized-channel.mock.service";
+import {ProductMockService} from "./core/mocks/product.mock.service";
+import {ScheduleMockService} from "./core/mocks/schedule.mock.service";
+import {DealerMockService} from "./core/mocks/dealer.mock.service";
 
 @NgModule({
   declarations: [
@@ -52,7 +60,11 @@ import {UserService} from "./core/services/user/user.service";
   providers: [
     HttpClient,
     { provide: 'apiEndpoint', useValue: environment.apiEndpoint},
-    { provide: UserService, useClass: forwardRef(() => { return environment.apiEndpoint ? UserService : UserMockService; }) }
+    { provide: UserService, useClass: forwardRef(() => { return environment.apiEndpoint ? UserService : UserMockService; }) },
+    { provide: AuthorizedChannelService, useClass: forwardRef(() => { return environment.apiEndpoint ? AuthorizedChannelMockService : AuthorizedChannelService; }) },
+    { provide: ProductService, useClass: forwardRef(() => { return environment.apiEndpoint ? ProductService : ProductMockService; }) },
+    { provide: ScheduleService, useClass: forwardRef(() => { return environment.apiEndpoint ? ScheduleService : ScheduleMockService; }) },
+    { provide: DealerService, useClass: forwardRef(() => { return environment.apiEndpoint ? DealerService : DealerMockService; }) },
   ],
   bootstrap: [AppComponent]
 })

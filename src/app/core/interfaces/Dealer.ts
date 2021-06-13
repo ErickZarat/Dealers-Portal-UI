@@ -1,5 +1,5 @@
 export interface Dealer {
-  code: number,
+  code?: number,
   name: String,
   notificationEmail: String,
   alertEmail: String,
