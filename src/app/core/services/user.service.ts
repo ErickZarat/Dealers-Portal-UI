@@ -2,15 +2,14 @@ import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {User} from "../interfaces/User";
+import {RestService} from "./rest.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService{
+export class UserService implements RestService<User> {
 
-  constructor(private http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
-    console.log("Returned API Service");
-  }
+  constructor(private http: HttpClient, @Inject('apiEndpoint') private endpoint: String) { }
 
   showSource() {
     console.log("Using REST API Service");
