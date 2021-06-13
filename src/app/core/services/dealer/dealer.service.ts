@@ -1,8 +1,8 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Dealer} from "../interfaces/Dealer";
-import {RestService} from "./rest.service";
+import {Dealer} from "../../interfaces/Dealer";
+import {RestService} from "../rest.service";
 
 
 @Injectable({
