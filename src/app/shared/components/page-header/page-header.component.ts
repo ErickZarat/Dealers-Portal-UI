@@ -1,5 +1,5 @@
 import {Component, NgModule, OnInit} from '@angular/core';
-import {ComponentPageTitleService} from "../page-title/page-title.service";
+import {ComponentPageTitleService} from "../../../core/services/page-title.service";
 
 @Component({
   selector: 'app-page-header',
