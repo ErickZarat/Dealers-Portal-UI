@@ -37,7 +37,8 @@ jobs:
       - name: ESLint Check
         run: npm run lint
       - name: Test Check
-        run: npm test
+        run: |
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
   build:
     needs: test
