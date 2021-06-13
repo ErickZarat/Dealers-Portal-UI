@@ -7,6 +7,7 @@ mat-drawer .container{
 }
 
 mat-drawer {
+  min-width: 400px;
   width: 40%;
 }
 
