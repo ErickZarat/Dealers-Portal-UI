@@ -6,13 +6,10 @@ import {ComponentPageTitleService} from "../page-title/page-title.service";
   templateUrl: './authorized-channels.component.html',
   styleUrls: ['./authorized-channels.component.css']
 })
-export class AuthorizedChannelsComponent implements OnInit {
+export class AuthorizedChannelsComponent {
 
   constructor(public _componentPageTitle: ComponentPageTitleService) {
     _componentPageTitle.title = "Authorized Channels";
-  }
-
-  ngOnInit(): void {
   }
 
 }

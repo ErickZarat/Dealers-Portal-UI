@@ -7,15 +7,12 @@ import {MatDrawer, MatSidenav} from "@angular/material/sidenav";
   templateUrl: './dealers.component.html',
   styleUrls: ['./dealers.component.css']
 })
-export class DealersComponent implements OnInit {
+export class DealersComponent {
 
   @ViewChild('formDrawer') formDrawer: MatDrawer | undefined;
 
   constructor(public _componentPageTitle: ComponentPageTitleService) {
     _componentPageTitle.title = "Dealers";
-  }
-
-  ngOnInit(): void {
   }
 
   openDrawer() {
