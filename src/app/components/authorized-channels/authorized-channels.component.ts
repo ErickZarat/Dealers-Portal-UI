@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ComponentPageTitleService} from "../../core/services/page-title.service";
+import {ComponentPageTitleService} from "../../core/services/page-title/page-title.service";
 
 @Component({
   selector: 'app-authorized-channels',

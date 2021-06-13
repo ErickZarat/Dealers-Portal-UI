@@ -20,9 +20,9 @@ import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {ProductsComponent} from "./components/products/products.component";
 import {AuthorizedChannelsComponent} from "./components/authorized-channels/authorized-channels.component";
 import {SchedulesComponent} from "./components/schedules/schedules.component";
-import {UserService} from "./core/services/user.service";
 import {UserMockService} from "./core/mocks/user.mock.service";
 import {ComponentHeaderModule} from "./shared/components/page-header/page-header.component";
+import {UserService} from "./core/services/user/user.service";
 
 @NgModule({
   declarations: [

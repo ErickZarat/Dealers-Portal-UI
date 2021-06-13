@@ -1,7 +1,7 @@
 export interface User {
-  code: number;
+  code?: number;
   name: String;
   email: String;
   phone: String;
-  dealerCode: number | null
+  dealerCode?: number | null;
 }

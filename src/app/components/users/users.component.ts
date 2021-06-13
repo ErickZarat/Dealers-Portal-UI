@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../core/services/user.service";
-import {ComponentPageTitleService} from "../../core/services/page-title.service";
+
+import {ComponentPageTitleService} from "../../core/services/page-title/page-title.service";
+import {User} from "../../core/interfaces/User";
+import {UserService} from "../../core/services/user/user.service";
 
 
 @Component({
@@ -15,7 +17,28 @@ export class UsersComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.userService.showSource();
+    this.userService.findOne(1)
+      .subscribe(user => {
+        console.log(user)
+      });
+
+    let user: User = {
+      name: 'Jose1',
+      phone: '12345678',
+      email: 'jose@gmail.com',
+    }
+
+    this.userService.create(user, 1).subscribe(user => {
+      console.log("created users")
+      console.log(user)
+    })
+
+
+    this.userService.find(1)
+      .subscribe(users => {
+        console.log(users)
+      });
+
   }
 
 }
