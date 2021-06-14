@@ -22,9 +22,8 @@ export class ScheduleService implements RestService<Schedule> {
     return this.http.delete<boolean>(`${this.endpoint}/${code}`)
   }
 
-  find(dealerCode: number | null): Observable<Schedule[]> {
-    let code: number = dealerCode === null ? 0: dealerCode;
-    return this.http.get<Schedule[]>(`${this.endpoint}`, {params:{dealerCode: code}})
+  find(): Observable<Schedule[]> {
+    return this.http.get<Schedule[]>(`${this.endpoint}`)
   }
 
   findOne(code: number): Observable<Schedule> {

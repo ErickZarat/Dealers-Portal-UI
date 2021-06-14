@@ -29,9 +29,8 @@ export class ScheduleMockService extends ScheduleService {
     return of(deleted);
   }
 
-  find(dealerCode: number | null): Observable<Schedule[]> {
-    let schedules: Array<Schedule> = this.schedules.filter(x => x.dealerCode === dealerCode)
-    return of(schedules);
+  find(): Observable<Schedule[]> {
+    return of(this.schedules);
   }
 
   findOne(code: number): Observable<Schedule> {
