@@ -1,5 +1,5 @@
 export interface AuthorizedChannel {
-  code?: number,
+  id?: number,
   name: String,
   dealerCode?: number | null;
 }

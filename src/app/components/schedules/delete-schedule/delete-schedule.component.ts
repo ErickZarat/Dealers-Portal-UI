@@ -24,7 +24,7 @@ export class DeleteScheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentSchedule(params['code'])
+      this.setCurrentSchedule(params['id'])
     });
   }
 

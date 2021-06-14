@@ -32,6 +32,6 @@ export class AuthorizedChannelService implements RestService<AuthorizedChannel> 
   }
 
   update(authorizedChannel: AuthorizedChannel): Observable<AuthorizedChannel> {
-    return this.http.put<AuthorizedChannel>(`${this.endpoint}/${authorizedChannel.code}`, authorizedChannel)
+    return this.http.put<AuthorizedChannel>(`${this.endpoint}/${authorizedChannel.id}`, authorizedChannel)
   }
 }

@@ -22,27 +22,27 @@ let routes: Routes;
 routes = [
   {path: 'dashboard', component: DashboardComponent},
   {path: 'authorized_channels', component: AuthorizedChannelsComponent, children: [
-      { path: 'edit/:code', component: EditAuthorizedChannelComponent },
-      { path: 'delete/:code', component: DeleteAuthorizedChannelComponent },
+      { path: 'edit/:id', component: EditAuthorizedChannelComponent },
+      { path: 'delete/:id', component: DeleteAuthorizedChannelComponent },
     ]
   },
   {path: 'products', component: ProductsComponent, children: [
-      { path: 'edit/:code', component: EditProductComponent },
-      { path: 'delete/:code', component: DeleteProductComponent },
+      { path: 'edit/:id', component: EditProductComponent },
+      { path: 'delete/:id', component: DeleteProductComponent },
     ]},
   {path: 'users', component: UsersComponent, children: [
-      { path: 'edit/:code', component: EditUserComponent },
-      { path: 'delete/:code', component: DeleteUserComponent },
+      { path: 'edit/:id', component: EditUserComponent },
+      { path: 'delete/:id', component: DeleteUserComponent },
     ]},
   {
     path: 'dealers', component: DealersComponent, children: [
-      { path: 'edit/:code', component: EditDealerComponent },
-      { path: 'delete/:code', component: DeleteDealerComponent },
+      { path: 'edit/:id', component: EditDealerComponent },
+      { path: 'delete/:id', component: DeleteDealerComponent },
     ]
   },
   {path: 'schedules', component: SchedulesComponent, children: [
-      { path: 'edit/:code', component: EditScheduleComponent },
-      { path: 'delete/:code', component: DeleteScheduleComponent },
+      { path: 'edit/:id', component: EditScheduleComponent },
+      { path: 'delete/:id', component: DeleteScheduleComponent },
     ]
   },
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},

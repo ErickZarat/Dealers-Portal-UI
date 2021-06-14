@@ -31,7 +31,7 @@ export class EditDealerComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentDealer(params['code'])
+      this.setCurrentDealer(params['id'])
     });
 
     this.scheduleService.find().subscribe(schedules => this.items = schedules)

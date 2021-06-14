@@ -24,13 +24,13 @@ export class DeleteDealerComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentDealer(params['code'])
+      this.setCurrentDealer(params['id'])
     });
   }
 
   onSubmit() {
-    if (this.dealer.code)
-      this.dealerService.delete(this.dealer.code).subscribe(dealer => {
+    if (this.dealer.id)
+      this.dealerService.delete(this.dealer.id).subscribe(dealer => {
         let message = dealer ? "Deleted successful" : "Error deleting dealer"
         this._snackBar.open(message);
         this.refreshHook.emit(true);

@@ -31,6 +31,6 @@ export class UserService implements RestService<User> {
   }
 
   update(user: User): Observable<User> {
-    return this.http.put<User>(`${this.endpoint}/${user.code}`, user)
+    return this.http.put<User>(`${this.endpoint}/${user.id}`, user)
   }
 }

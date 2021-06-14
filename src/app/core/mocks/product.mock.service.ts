@@ -26,6 +26,6 @@ export class ProductMockService extends ProductService {
   }
 
   update(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.url}${product.code}`, product)
+    return this.http.put<Product>(`${this.url}${product.id}`, product)
   }
 }
