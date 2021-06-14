@@ -1,0 +1,43 @@
+
+<mat-drawer-container hasBackdrop="true">
+
+  <mat-drawer #formDrawer position="end" mode="over" opened="false">
+    <button mat-icon-button  (click)="formDrawer.close()" aria-label="close form drawer">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="container">
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+
+    <div class="cards-container">
+      <mat-card *ngFor="let dealer of dealers" class="dealer-card">
+        <mat-card-header>
+          <div mat-card-avatar class="dealer-avatar-image"></div>
+          <mat-card-title>{{dealer.name}}</mat-card-title>
+          <mat-card-subtitle>{{dealer.notificationEmail}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <span>Alert Email:</span> {{dealer.alertEmail}}
+          <p *ngIf="dealer.schedule">
+            <span>Schedule:</span> {{dealer.schedule.initialHour}} - {{dealer.schedule.endHour}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a aria-label="delete dealer" routerLink="./delete/{{dealer.code}}" (click)="openDrawer()" mat-button color="warn">Delete</a>
+          <a aria-label="edit dealer" routerLink="./edit/{{dealer.code}}" (click)="openDrawer()" mat-button color="primary">Edit</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <a mat-fab color="accent" class="fab" aria-label="add dealer" routerLink="./edit/new" (click)="openDrawer()">
+      <mat-icon>add</mat-icon>
+    </a>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
+

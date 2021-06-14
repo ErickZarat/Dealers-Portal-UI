@@ -1,0 +1,42 @@
+
+<mat-drawer-container hasBackdrop="true">
+
+  <mat-drawer #formDrawer position="end" mode="over" opened="false">
+    <button mat-icon-button  (click)="formDrawer.close()" aria-label="close form drawer">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="container">
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+
+    <div class="cards-container">
+      <mat-card *ngFor="let product of products" class="product-card">
+        <mat-card-header>
+          <div mat-card-avatar class="product-avatar-image"></div>
+          <mat-card-title>{{product.name}}</mat-card-title>
+          <mat-card-subtitle>Q{{product.amount}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{product.description}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a aria-label="delete product" routerLink="./delete/{{product.code}}" (click)="openDrawer()" mat-button color="warn">Delete</a>
+          <a aria-label="edit product" routerLink="./edit/{{product.code}}" (click)="openDrawer()" mat-button color="primary">Edit</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <a mat-fab color="accent" class="fab" aria-label="add product" routerLink="./edit/new" (click)="openDrawer()">
+      <mat-icon>add</mat-icon>
+    </a>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
+

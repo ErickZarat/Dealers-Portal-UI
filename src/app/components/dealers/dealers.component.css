@@ -1,0 +1,48 @@
+mat-drawer-container {
+  height: 100%
+}
+
+mat-drawer .container{
+  padding: 12px
+}
+
+mat-drawer {
+  min-width: 400px;
+  width: 40%;
+}
+
+mat-drawer-content {
+  padding: 12px;
+}
+
+.dealer-card {
+  max-width: 300px;
+  margin: 12px;
+}
+
+.dealer-avatar-image {
+  filter: invert(100%);
+  background: url('/assets/img/dealer-avatar.png'), darkkhaki;
+  background-size: cover;
+}
+
+mat-card-content span{
+  font-weight: normal;
+}
+mat-card {
+  display: inline-block;
+}
+mat-card-content {
+  font-weight: 200;
+}
+
+.cards-container {
+  width: 70%;
+  margin:auto;
+}
+
+.fab {
+  position: fixed !important;
+  bottom: 10%;
+  right: 10%;
+}

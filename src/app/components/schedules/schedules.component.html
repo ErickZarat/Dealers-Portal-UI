@@ -1,0 +1,38 @@
+
+<mat-drawer-container hasBackdrop="true">
+
+  <mat-drawer #formDrawer position="end" mode="over" opened="false">
+    <button mat-icon-button  (click)="formDrawer.close()" aria-label="close form drawer">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="container">
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer-content>
+
+
+    <div class="cards-container">
+      <mat-card *ngFor="let schedule of schedules" class="schedule-card">
+        <mat-card-header>
+
+          <mat-card-title>{{schedule.initialHour}} - {{schedule.endHour}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+        </mat-card-content>
+        <mat-card-actions>
+          <a aria-label="delete schedule" routerLink="./delete/{{schedule.id}}" (click)="openDrawer()" mat-button color="warn">Delete</a>
+          <a aria-label="edit schedule" routerLink="./edit/{{schedule.id}}" (click)="openDrawer()" mat-button color="primary">Edit</a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <a mat-fab color="accent" class="fab" aria-label="add schedule" routerLink="./edit/new" (click)="openDrawer()">
+      <mat-icon>add</mat-icon>
+    </a>
+
+  </mat-drawer-content>
+
+</mat-drawer-container>
+

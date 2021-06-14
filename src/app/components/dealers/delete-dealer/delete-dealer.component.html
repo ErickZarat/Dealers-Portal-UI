@@ -1,0 +1,19 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput value="{{dealer.name}}" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Notification Email</mat-label>
+    <input matInput value="{{dealer.notificationEmail}}" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Alert Emails</mat-label>
+    <input matInput value="{{dealer.alertEmail}}" readonly>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="warn">Delete</button>
+
+</form>

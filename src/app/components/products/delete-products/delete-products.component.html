@@ -1,0 +1,19 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput value="{{product.name}}" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Amount</mat-label>
+    <input matInput value="{{product.amount}}" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput cols="30" rows="10" readonly>{{product.description}}</textarea>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="warn">Delete</button>
+
+</form>
