@@ -22,9 +22,8 @@ export class ProductService implements RestService<Product> {
     return this.http.delete<boolean>(`${this.endpoint}/${code}`)
   }
 
-  find(dealerCode: number | null): Observable<Product[]> {
-    let code: number = dealerCode === null ? 0: dealerCode;
-    return this.http.get<Product[]>(`${this.endpoint}`, {params:{dealerCode: code}})
+  find(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.endpoint}`)
   }
 
   findOne(code: number): Observable<Product> {

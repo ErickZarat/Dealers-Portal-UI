@@ -29,9 +29,8 @@ export class ProductMockService extends ProductService {
     return of(deleted);
   }
 
-  find(dealerCode: number | null): Observable<Product[]> {
-    let products: Array<Product> = this.products.filter(x => x.dealerCode === dealerCode)
-    return of(products);
+  find(): Observable<Product[]> {
+    return of(this.products);
   }
 
   findOne(code: number): Observable<Product> {

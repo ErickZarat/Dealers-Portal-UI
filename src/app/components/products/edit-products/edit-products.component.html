@@ -1,0 +1,31 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" name="name" [(ngModel)]="product.name" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Amount</mat-label>
+    <input matInput placeholder="Name" name="name" [(ngModel)]="product.amount" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea matInput cols="30" rows="10" placeholder="Description" name="description" [(ngModel)]="product.amount" required></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Dealer</mat-label>
+    <input type="text" placeholder="Dealer" matInput [formControl]="formControl" [matAutocomplete]="auto">
+
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let item of autoFilter | async" (onSelectionChange)="onScheduleSelected(item)" value="{{item.name}}">
+        {{item.name}}
+      </mat-option>
+    </mat-autocomplete>
+
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Save</button>
+
+</form>
