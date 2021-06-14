@@ -35,7 +35,7 @@ import { EditDealerComponent } from './components/dealers/edit-dealer/edit-deale
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
-import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
 import { DeleteDealerComponent } from './components/dealers/delete-dealer/delete-dealer.component';
 
 
@@ -79,6 +79,7 @@ import { DeleteDealerComponent } from './components/dealers/delete-dealer/delete
     { provide: ProductService, useClass: forwardRef(() => { return environment.apiEndpoint ? ProductService : ProductMockService; }) },
     { provide: ScheduleService, useClass: forwardRef(() => { return environment.apiEndpoint ? ScheduleService : ScheduleMockService; }) },
     { provide: DealerService, useClass: forwardRef(() => { return environment.apiEndpoint ? DealerService : DealerMockService; }) },
+    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
   ],
   bootstrap: [AppComponent]
 })

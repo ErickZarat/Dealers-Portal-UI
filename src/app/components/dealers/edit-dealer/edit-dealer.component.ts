@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Dealer} from "../../../core/interfaces/Dealer";
 import {Schedule} from "../../../core/interfaces/Schedule";
 import { ActivatedRoute } from '@angular/router';
@@ -16,6 +16,7 @@ export class EditDealerComponent implements OnInit {
   dealer: Dealer = {alertEmail: "", name: "", notificationEmail: "", schedule: {initialHour: "", endHour:""}}
   schedule: Schedule = {initialHour: "", endHour:""}
   isNewDealer: Boolean = false
+  @Output() refreshHook: EventEmitter<any> = new EventEmitter();
 
   constructor(private route: ActivatedRoute, public dealerService: DealerService, private _snackBar: MatSnackBar) {
     this.reset()
@@ -57,6 +58,7 @@ export class EditDealerComponent implements OnInit {
     action.subscribe(dealer => {
       let message = dealer ? "Saved successful" : "Error saving dealer"
       this._snackBar.open(message);
+      this.refreshHook.emit(true);
     })
   }
 

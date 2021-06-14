@@ -24,10 +24,28 @@ export class DealersComponent implements OnInit{
     if (this.formDrawer !== undefined) this.formDrawer.open();
   }
 
-  ngOnInit(): void {
+  closeDrawer() {
+    if (this.formDrawer !== undefined) this.formDrawer.close();
+  }
+
+  refreshDealers(){
     this.dealerService.find().subscribe(dealers => {
       this.dealers = dealers;
     });
+  }
 
+  ngOnInit(): void {
+    this.refreshDealers()
+  }
+
+  // @ts-ignore
+  onActivate(componentReference) {
+    if (componentReference.hasOwnProperty("refreshHook"))
+      componentReference.refreshHook.subscribe((refresh: Boolean) => {
+        if (refresh){
+          this.refreshDealers()
+          this.closeDrawer()
+        }
+      })
   }
 }

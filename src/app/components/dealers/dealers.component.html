@@ -6,7 +6,7 @@
       <mat-icon>close</mat-icon>
     </button>
     <div class="container">
-      <router-outlet></router-outlet>
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
     </div>
   </mat-drawer>
 
