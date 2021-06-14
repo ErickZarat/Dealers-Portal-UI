@@ -1,0 +1,32 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" name="name" [(ngModel)]="user.name" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" name="email" [(ngModel)]="user.email" email="true" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Amount</mat-label>
+    <input matInput placeholder="Phone" name="phone" [(ngModel)]="user.phone" required>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Dealer</mat-label>
+    <input type="text" placeholder="Dealer" matInput [formControl]="formControl" [matAutocomplete]="auto">
+
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let item of autoFilter | async" (onSelectionChange)="onScheduleSelected(item)" value="{{item.name}}">
+        {{item.name}}
+      </mat-option>
+    </mat-autocomplete>
+
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Save</button>
+
+</form>

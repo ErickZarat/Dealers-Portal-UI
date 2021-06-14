@@ -29,9 +29,8 @@ export class UserMockService extends UserService {
     return of(deleted);
   }
 
-  find(dealerCode: number | null): Observable<User[]> {
-    let users: Array<User> = this.users.filter(x => x.dealerCode === dealerCode)
-    return of(users);
+  find(): Observable<User[]> {
+    return of(this.users);
   }
 
   findOne(code: number): Observable<User> {

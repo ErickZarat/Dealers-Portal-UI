@@ -15,7 +15,6 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {MatTableModule} from "@angular/material/table";
 import {DealersComponent} from "./components/dealers/dealers.component";
-import {UsersComponent} from "./components/users/users.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {ProductsComponent} from "./components/products/products.component";
 import {AuthorizedChannelsComponent} from "./components/authorized-channels/authorized-channels.component";
@@ -44,6 +43,9 @@ import {EditAuthorizedChannelComponent} from "./components/authorized-channels/e
 import {DeleteAuthorizedChannelComponent} from "./components/authorized-channels/delete-authorized-channels/delete-authorized-channels.component";
 import {EditProductComponent} from "./components/products/edit-products/edit-products.component";
 import {DeleteProductComponent} from "./components/products/delete-products/delete-products.component";
+import {EditUserComponent} from "./components/users/edit-users/edit-users.component";
+import {DeleteUserComponent} from "./components/users/delete-users/delete-users.component";
+import {UsersComponent} from "./components/users/users.component";
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import {DeleteProductComponent} from "./components/products/delete-products/dele
     EditAuthorizedChannelComponent,
     DeleteAuthorizedChannelComponent,
     EditProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    EditUserComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,

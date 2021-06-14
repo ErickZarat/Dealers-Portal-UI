@@ -1,44 +1,50 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatDrawer} from "@angular/material/sidenav";
 import {ComponentPageTitleService} from "../../core/services/page-title/page-title.service";
 import {User} from "../../core/interfaces/User";
 import {UserService} from "../../core/services/user/user.service";
 
-
 @Component({
-  selector: 'app-users',
+  selector: 'app-user',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit{
 
+  @ViewChild('formDrawer') formDrawer: MatDrawer | undefined;
+  public users: User[]
+
   constructor(public _componentPageTitle: ComponentPageTitleService, public userService: UserService) {
     _componentPageTitle.title = "Users";
+    this.users = []
+  }
+
+  openDrawer() {
+    if (this.formDrawer !== undefined) this.formDrawer.open();
+  }
+
+  closeDrawer() {
+    if (this.formDrawer !== undefined) this.formDrawer.close();
+  }
+
+  refreshUsers(){
+    this.userService.find().subscribe(users => {
+      this.users = users;
+    });
   }
 
   ngOnInit(): void {
-    this.userService.findOne(1)
-      .subscribe(user => {
-        console.log(user)
-      });
-
-    let user: User = {
-      name: 'Jose1',
-      phone: '12345678',
-      email: 'jose@gmail.com',
-    }
-
-    this.userService.create(user, 1).subscribe(user => {
-      console.log("created users")
-      console.log(user)
-    })
-
-
-    this.userService.find(1)
-      .subscribe(users => {
-        console.log(users)
-      });
-
+    this.refreshUsers()
   }
 
+  // @ts-ignore
+  onActivate(componentReference) {
+    if (componentReference.hasOwnProperty("refreshHook"))
+      componentReference.refreshHook.subscribe((refresh: Boolean) => {
+        if (refresh){
+          this.refreshUsers()
+          this.closeDrawer()
+        }
+      })
+  }
 }

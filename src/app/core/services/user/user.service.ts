@@ -22,9 +22,8 @@ export class UserService implements RestService<User> {
     return this.http.delete<boolean>(`${this.endpoint}/${code}`)
   }
 
-  find(dealerCode: number | null): Observable<User[]> {
-    let code: number = dealerCode === null ? 0: dealerCode;
-    return this.http.get<User[]>(`${this.endpoint}`, {params:{dealerCode: code}})
+  find(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.endpoint}`)
   }
 
   findOne(code: number): Observable<User> {
