@@ -48,6 +48,7 @@ import {DeleteUserComponent} from "./components/users/delete-users/delete-users.
 import {UsersComponent} from "./components/users/users.component";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,7 @@ import {UsersComponent} from "./components/users/users.component";
     EditProductComponent,
     DeleteProductComponent,
     EditUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
   ],
   imports: [
     BrowserModule,
