@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsersComponent } from './users.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {environment} from "../../../environments/environment";
 
 describe('UsersComponent', () => {
   let component: UsersComponent;
@@ -8,6 +10,8 @@ describe('UsersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [{ provide: 'apiEndpoint', useValue: environment.apiEndpoint}],
+      imports: [ HttpClientTestingModule ],
       declarations: [ UsersComponent ]
     })
     .compileComponents();

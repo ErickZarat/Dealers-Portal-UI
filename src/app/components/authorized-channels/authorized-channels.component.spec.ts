@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuthorizedChannelsComponent } from './authorized-channels.component';
+import {environment} from "../../../environments/environment";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('AuthorizedChannelsComponent', () => {
   let component: AuthorizedChannelsComponent;
@@ -8,6 +10,8 @@ describe('AuthorizedChannelsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [{ provide: 'apiEndpoint', useValue: environment.apiEndpoint}],
+      imports: [ HttpClientTestingModule ],
       declarations: [ AuthorizedChannelsComponent ]
     })
     .compileComponents();

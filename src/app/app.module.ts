@@ -59,9 +59,10 @@ import {DealerMockService} from "./core/mocks/dealer.mock.service";
   ],
   providers: [
     HttpClient,
+    HttpClientModule,
     { provide: 'apiEndpoint', useValue: environment.apiEndpoint},
     { provide: UserService, useClass: forwardRef(() => { return environment.apiEndpoint ? UserService : UserMockService; }) },
-    { provide: AuthorizedChannelService, useClass: forwardRef(() => { return environment.apiEndpoint ? AuthorizedChannelMockService : AuthorizedChannelService; }) },
+    { provide: AuthorizedChannelService, useClass: forwardRef(() => { return environment.apiEndpoint ? AuthorizedChannelService: AuthorizedChannelMockService; }) },
     { provide: ProductService, useClass: forwardRef(() => { return environment.apiEndpoint ? ProductService : ProductMockService; }) },
     { provide: ScheduleService, useClass: forwardRef(() => { return environment.apiEndpoint ? ScheduleService : ScheduleMockService; }) },
     { provide: DealerService, useClass: forwardRef(() => { return environment.apiEndpoint ? DealerService : DealerMockService; }) },
