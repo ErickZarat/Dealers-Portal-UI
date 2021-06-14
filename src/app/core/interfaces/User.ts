@@ -1,5 +1,5 @@
 export interface User {
-  code?: number;
+  id?: number;
   name: String;
   email: String;
   phone: String;

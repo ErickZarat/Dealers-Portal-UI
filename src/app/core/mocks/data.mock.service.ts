@@ -27,7 +27,7 @@ export class MockDataService implements InMemoryDbService {
       ],
       dealers: [
         {
-          "code": 4,
+          "id": 4,
           "name": "Distribuidora 3",
           "notificationEmail": "d3@gmail.com",
           "alertEmail": "d3@gmail.com",
@@ -38,7 +38,7 @@ export class MockDataService implements InMemoryDbService {
           }
         },
         {
-          "code": 5,
+          "id": 5,
           "name": "Distribuidora 3",
           "notificationEmail": "d3@gmail.com",
           "alertEmail": "d3@gmail.com",
@@ -49,7 +49,7 @@ export class MockDataService implements InMemoryDbService {
           }
         },
         {
-          "code": 6,
+          "id": 6,
           "name": "Distribuidora 1",
           "notificationEmail": "d1@gmail.com",
           "alertEmail": "d1@gmail.com",
@@ -62,19 +62,19 @@ export class MockDataService implements InMemoryDbService {
       ],
       products: [
         {
-          "code": 23,
+          "id": 23,
           "name": "Libro 1",
           "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
           "amount": 25
         },
         {
-          "code": 24,
+          "id": 24,
           "name": "Libro 2",
           "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
           "amount": 60
         },
         {
-          "code": 25,
+          "id": 25,
           "name": "libro 4",
           "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
           "amount": 333
@@ -82,19 +82,19 @@ export class MockDataService implements InMemoryDbService {
       ],
       users: [
         {
-          "code": 18,
+          "id": 18,
           "name": "John doe",
           "email": "john@gmail.com",
           "phone": "+50212345678"
         },
         {
-          "code": 19,
+          "id": 19,
           "name": "Steve doe",
           "email": "steve@gmail.com",
           "phone": "+50212345678"
         },
         {
-          "code": 26,
+          "id": 26,
           "name": "Jane doe",
           "email": "jane@gmail.com",
           "phone": "+5021234567890"
@@ -102,19 +102,19 @@ export class MockDataService implements InMemoryDbService {
       ],
       'authorized-channels': [
         {
-          "code": 15,
+          "id": 15,
           "name": "Canal 1"
         },
         {
-          "code": 16,
+          "id": 16,
           "name": "Canal 2"
         },
         {
-          "code": 29,
+          "id": 29,
           "name": "Canal 5"
         },
         {
-          "code": 30,
+          "id": 30,
           "name": "Canal 10"
         }
       ]

@@ -26,7 +26,7 @@ export class AuthorizedChannelMockService extends AuthorizedChannelService {
   }
 
   update(authorizedChannel: AuthorizedChannel): Observable<AuthorizedChannel> {
-    return this.http.put<AuthorizedChannel>(`${this.url}${authorizedChannel.code}`, authorizedChannel)
+    return this.http.put<AuthorizedChannel>(`${this.url}${authorizedChannel.id}`, authorizedChannel)
   }
 
 }

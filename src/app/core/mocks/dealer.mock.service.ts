@@ -26,7 +26,7 @@ export class DealerMockService extends DealerService {
   }
 
   update(dealer: Dealer): Observable<Dealer> {
-    return this.http.put<Dealer>(`${this.url}${dealer.code}`, dealer)
+    return this.http.put<Dealer>(`${this.url}${dealer.id}`, dealer)
   }
 
 }

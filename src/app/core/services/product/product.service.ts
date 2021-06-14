@@ -31,6 +31,6 @@ export class ProductService implements RestService<Product> {
   }
 
   update(product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.endpoint}/${product.code}`, product)
+    return this.http.put<Product>(`${this.endpoint}/${product.id}`, product)
   }
 }

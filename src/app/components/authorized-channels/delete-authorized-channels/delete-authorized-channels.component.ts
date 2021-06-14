@@ -24,13 +24,13 @@ export class DeleteAuthorizedChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentAuthorizedChannel(params['code'])
+      this.setCurrentAuthorizedChannel(params['id'])
     });
   }
 
   onSubmit() {
-    if (this.authorizedChannel.code)
-      this.authorizedChannelService.delete(this.authorizedChannel.code).subscribe(authorizedChannel => {
+    if (this.authorizedChannel.id)
+      this.authorizedChannelService.delete(this.authorizedChannel.id).subscribe(authorizedChannel => {
         let message = authorizedChannel ? "Deleted successful" : "Error deleting authorizedChannel"
         this._snackBar.open(message);
         this.refreshHook.emit(true);

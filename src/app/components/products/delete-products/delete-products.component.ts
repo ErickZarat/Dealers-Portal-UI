@@ -24,13 +24,13 @@ export class DeleteProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentProduct(params['code'])
+      this.setCurrentProduct(params['id'])
     });
   }
 
   onSubmit() {
-    if (this.product.code)
-      this.productService.delete(this.product.code).subscribe(product => {
+    if (this.product.id)
+      this.productService.delete(this.product.id).subscribe(product => {
         let message = product ? "Deleted successful" : "Error deleting product"
         this._snackBar.open(message);
         this.refreshHook.emit(true);

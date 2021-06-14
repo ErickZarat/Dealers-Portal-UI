@@ -31,7 +31,7 @@ export class EditAuthorizedChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentAuthorizedChannel(params['code'])
+      this.setCurrentAuthorizedChannel(params['id'])
     });
 
     this.dealerService.find().subscribe( dealers => this.items = dealers )
@@ -65,8 +65,8 @@ export class EditAuthorizedChannelComponent implements OnInit {
   onSubmit() {
     let action: Observable<AuthorizedChannel> = of()
     if (this.isNewAuthorizedChannel) {
-      if (this.dealer.code)
-        action = this.authorizedChannelService.create(this.authorizedChannel, this.dealer.code)
+      if (this.dealer.id)
+        action = this.authorizedChannelService.create(this.authorizedChannel, this.dealer.id)
     } else {
       action = this.authorizedChannelService.update(this.authorizedChannel)
     }

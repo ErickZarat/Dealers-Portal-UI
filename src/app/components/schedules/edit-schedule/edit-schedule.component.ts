@@ -23,7 +23,7 @@ export class EditScheduleComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentSchedule(params['code'])
+      this.setCurrentSchedule(params['id'])
     });
   }
 

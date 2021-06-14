@@ -24,13 +24,13 @@ export class DeleteUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentUser(params['code'])
+      this.setCurrentUser(params['id'])
     });
   }
 
   onSubmit() {
-    if (this.user.code)
-      this.userService.delete(this.user.code).subscribe(user => {
+    if (this.user.id)
+      this.userService.delete(this.user.id).subscribe(user => {
         let message = user ? "Deleted successful" : "Error deleting user"
         this._snackBar.open(message);
         this.refreshHook.emit(true);

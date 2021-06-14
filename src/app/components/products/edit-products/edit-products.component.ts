@@ -31,7 +31,7 @@ export class EditProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
-      this.setCurrentProduct(params['code'])
+      this.setCurrentProduct(params['id'])
     });
 
     this.dealerService.find().subscribe( dealers => this.items = dealers )
@@ -65,8 +65,8 @@ export class EditProductComponent implements OnInit {
   onSubmit() {
     let action: Observable<Product> = of()
     if (this.isNewProduct) {
-      if (this.dealer.code)
-        action = this.productService.create(this.product, this.dealer.code)
+      if (this.dealer.id)
+        action = this.productService.create(this.product, this.dealer.id)
     } else {
       action = this.productService.update(this.product)
     }

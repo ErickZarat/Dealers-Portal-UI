@@ -24,8 +24,8 @@
           <span>Phone:</span> {{user.phone}}
         </mat-card-content>
         <mat-card-actions>
-          <a aria-label="delete user" routerLink="./delete/{{user.code}}" (click)="openDrawer()" mat-button color="warn">Delete</a>
-          <a aria-label="edit user" routerLink="./edit/{{user.code}}" (click)="openDrawer()" mat-button color="primary">Edit</a>
+          <a aria-label="delete user" routerLink="./delete/{{user.id}}" (click)="openDrawer()" mat-button color="warn">Delete</a>
+          <a aria-label="edit user" routerLink="./edit/{{user.id}}" (click)="openDrawer()" mat-button color="primary">Edit</a>
         </mat-card-actions>
       </mat-card>
     </div>

@@ -4,7 +4,7 @@ import {AuthorizedChannel} from "./AuthorizedChannel";
 import {User} from "./User";
 
 export interface Dealer {
-  code?: number,
+  id?: number,
   name: String,
   notificationEmail: String,
   alertEmail: String,

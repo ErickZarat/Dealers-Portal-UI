@@ -31,6 +31,6 @@ export class DealerService implements RestService<Dealer> {
   }
 
   update(dealer: Dealer): Observable<Dealer> {
-    return this.http.put<Dealer>(`${this.endpoint}/${dealer.code}`, dealer)
+    return this.http.put<Dealer>(`${this.endpoint}/${dealer.id}`, dealer)
   }
 }
