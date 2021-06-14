@@ -14,3 +14,39 @@ mat-drawer {
 mat-drawer-content {
   padding: 12px;
 }
+
+table {
+  width: 50%;
+}
+
+.dealer-card {
+  max-width: 300px;
+  margin: 12px;
+}
+
+.dealer-avatar-image {
+  filter: invert(100%);
+  background: url('/assets/img/dealer-avatar.png'), darkkhaki;
+  background-size: cover;
+}
+
+mat-card-content span{
+  font-weight: normal;
+}
+mat-card {
+  display: inline-block;
+}
+mat-card-content {
+  font-weight: 200;
+}
+
+.cards-container {
+  width: 70%;
+  margin:auto;
+}
+
+.fab {
+  position: fixed !important;
+  bottom: 10%;
+  right: 10%;
+}

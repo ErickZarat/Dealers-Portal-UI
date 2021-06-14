@@ -31,6 +31,13 @@ import {AuthorizedChannelMockService} from "./core/mocks/authorized-channel.mock
 import {ProductMockService} from "./core/mocks/product.mock.service";
 import {ScheduleMockService} from "./core/mocks/schedule.mock.service";
 import {DealerMockService} from "./core/mocks/dealer.mock.service";
+import { EditDealerComponent } from './components/dealers/edit-dealer/edit-dealer.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { DeleteDealerComponent } from './components/dealers/delete-dealer/delete-dealer.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +47,9 @@ import {DealerMockService} from "./core/mocks/dealer.mock.service";
     ProductsComponent,
     UsersComponent,
     AuthorizedChannelsComponent,
-    SchedulesComponent
+    SchedulesComponent,
+    EditDealerComponent,
+    DeleteDealerComponent
   ],
   imports: [
     BrowserModule,
@@ -56,11 +65,15 @@ import {DealerMockService} from "./core/mocks/dealer.mock.service";
     MatCardModule,
     MatListModule,
     MatTableModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [
     HttpClient,
     HttpClientModule,
-    { provide: 'apiEndpoint', useValue: environment.apiEndpoint},
+    { provide: 'apiEndpoint', useValue: environment.apiEndpoint },
     { provide: UserService, useClass: forwardRef(() => { return environment.apiEndpoint ? UserService : UserMockService; }) },
     { provide: AuthorizedChannelService, useClass: forwardRef(() => { return environment.apiEndpoint ? AuthorizedChannelService: AuthorizedChannelMockService; }) },
     { provide: ProductService, useClass: forwardRef(() => { return environment.apiEndpoint ? ProductService : ProductMockService; }) },

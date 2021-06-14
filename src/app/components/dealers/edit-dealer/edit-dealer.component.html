@@ -1,0 +1,29 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" name="name" [(ngModel)]="dealer.name" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Notification Email</mat-label>
+    <input matInput placeholder="Notification Email" name="notificationEmail" type="email" [(ngModel)]="dealer.notificationEmail" email="true" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Alert Emails</mat-label>
+    <input matInput placeholder="Alert Emails" name="alertEmail" type="email" [(ngModel)]="dealer.alertEmail" email="true" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Initial Hour</mat-label>
+    <input matInput placeholder="Initial Hour" name="initialHour" type="time" [(ngModel)]="schedule.initialHour" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>End Hour</mat-label>
+    <input matInput placeholder="End Hour" name="endHour" type="time" [(ngModel)]="schedule.endHour" required>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Save</button>
+
+</form>
