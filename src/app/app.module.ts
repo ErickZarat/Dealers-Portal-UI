@@ -34,9 +34,10 @@ import {DealerMockService} from "./core/mocks/dealer.mock.service";
 import { EditDealerComponent } from './components/dealers/edit-dealer/edit-dealer.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
 import { DeleteDealerComponent } from './components/dealers/delete-dealer/delete-dealer.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -68,7 +69,9 @@ import { DeleteDealerComponent } from './components/dealers/delete-dealer/delete
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpClient,

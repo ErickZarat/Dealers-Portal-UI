@@ -3,8 +3,11 @@ import {Dealer} from "../../../core/interfaces/Dealer";
 import {Schedule} from "../../../core/interfaces/Schedule";
 import { ActivatedRoute } from '@angular/router';
 import {DealerService} from "../../../core/services/dealer/dealer.service";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {FormControl} from "@angular/forms";
+import {map, startWith} from "rxjs/operators";
+import {ScheduleService} from "../../../core/services/schedule/schedule.service";
 
 @Component({
   selector: 'app-add-dealer',
@@ -18,8 +21,29 @@ export class EditDealerComponent implements OnInit {
   isNewDealer: Boolean = false
   @Output() refreshHook: EventEmitter<any> = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, public dealerService: DealerService, private _snackBar: MatSnackBar) {
+  public formControl = new FormControl();
+  autoFilter: Observable<Schedule[]> = of([]);
+  items: Schedule[] = [];
+
+  constructor(private route: ActivatedRoute, private _snackBar: MatSnackBar, public dealerService: DealerService, public scheduleService: ScheduleService ) {
     this.reset()
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      this.setCurrentDealer(params['code'])
+    });
+
+    this.scheduleService.find().subscribe(schedules => this.items = schedules)
+
+    this.autoFilter = this.formControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this.mat_filter(value))
+    );
+  }
+
+  private mat_filter(value: string): Schedule[] {
+    return this.items.filter(option => `${option.initialHour} - ${option.endHour}`.includes(value));
   }
 
   reset () {
@@ -40,12 +64,6 @@ export class EditDealerComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      this.setCurrentDealer(params['code'])
-    });
-  }
-
   onSubmit() {
     let action: Observable<Dealer>
     this.dealer.schedule = this.schedule
@@ -62,4 +80,7 @@ export class EditDealerComponent implements OnInit {
     })
   }
 
+  onScheduleSelected(item: Schedule) {
+    this.schedule = item;
+  }
 }
