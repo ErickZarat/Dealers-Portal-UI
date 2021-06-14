@@ -1,0 +1,14 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Initial Hour</mat-label>
+    <input matInput value="{{schedule.initialHour}}" readonly>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>End Hour</mat-label>
+    <input matInput value="{{schedule.endHour}}" readonly>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="warn">Delete</button>
+
+</form>

@@ -1,0 +1,14 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Initial Hour</mat-label>
+    <input matInput placeholder="Initial Hour" name="initialhour" [(ngModel)]="schedule.initialHour" type="time" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>End Hour</mat-label>
+    <input matInput placeholder="End Hour" name="endhour" [(ngModel)]="schedule.endHour" type="time" required>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Save</button>
+
+</form>

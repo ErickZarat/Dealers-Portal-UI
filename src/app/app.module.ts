@@ -38,6 +38,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule} from "@angular/material/snack-bar";
 import { DeleteDealerComponent } from './components/dealers/delete-dealer/delete-dealer.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {EditScheduleComponent} from "./components/schedules/edit-schedule/edit-schedule.component";
+import {DeleteScheduleComponent} from "./components/schedules/delete-schedule/delete-schedule.component";
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     AuthorizedChannelsComponent,
     SchedulesComponent,
     EditDealerComponent,
-    DeleteDealerComponent
+    DeleteDealerComponent,
+    EditScheduleComponent,
+    DeleteScheduleComponent
   ],
   imports: [
     BrowserModule,

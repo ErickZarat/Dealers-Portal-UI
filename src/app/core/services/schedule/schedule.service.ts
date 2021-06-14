@@ -13,9 +13,8 @@ export class ScheduleService implements RestService<Schedule> {
     this.endpoint = `${endpoint}/schedules`
   }
 
-  create(schedule: Schedule, dealerCode: number | null): Observable<Schedule> {
-    let code: number = dealerCode === null ? 0: dealerCode;
-    return this.http.post<Schedule>(`${this.endpoint}`, schedule, {params:{dealerCode: code}})
+  create(schedule: Schedule): Observable<Schedule> {
+    return this.http.post<Schedule>(`${this.endpoint}`, schedule)
   }
 
   delete(code: number): Observable<boolean> {

@@ -7,14 +7,13 @@ import {Schedule} from "../interfaces/Schedule";
   providedIn: 'root'
 })
 export class ScheduleMockService extends ScheduleService {
-  schedules: Array<Schedule> = [];
+  schedules: Array<Schedule> = [{id: 1, initialHour: "08:00", endHour: "10:00"}];
   currentId: number = 0;
 
-  create(schedule: Schedule, dealerCode: number | null): Observable<Schedule> {
+  create(schedule: Schedule): Observable<Schedule> {
     if (schedule.id === undefined) {
       schedule.id = this.currentId++;
     }
-    schedule.dealerCode = dealerCode
     this.schedules.push(schedule);
     return of(schedule);
   }

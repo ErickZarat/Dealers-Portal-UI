@@ -8,6 +8,8 @@ import {DealersComponent} from "./components/dealers/dealers.component";
 import {SchedulesComponent} from "./components/schedules/schedules.component";
 import {EditDealerComponent} from "./components/dealers/edit-dealer/edit-dealer.component";
 import {DeleteDealerComponent} from "./components/dealers/delete-dealer/delete-dealer.component";
+import {EditScheduleComponent} from "./components/schedules/edit-schedule/edit-schedule.component";
+import {DeleteScheduleComponent} from "./components/schedules/delete-schedule/delete-schedule.component";
 
 
 let routes: Routes;
@@ -22,7 +24,11 @@ routes = [
       { path: 'delete/:code', component: DeleteDealerComponent },
     ]
   },
-  {path: 'schedules', component: SchedulesComponent},
+  {path: 'schedules', component: SchedulesComponent,children: [
+      { path: 'edit/:code', component: EditScheduleComponent },
+      { path: 'delete/:code', component: DeleteScheduleComponent },
+    ]
+  },
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
 ];
 

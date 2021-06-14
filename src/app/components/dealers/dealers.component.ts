@@ -3,7 +3,6 @@ import {MatDrawer} from "@angular/material/sidenav";
 import {ComponentPageTitleService} from "../../core/services/page-title/page-title.service";
 import {Dealer} from "../../core/interfaces/Dealer";
 import {DealerService} from "../../core/services/dealer/dealer.service";
-import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-dealers',
