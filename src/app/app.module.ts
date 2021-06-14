@@ -46,6 +46,8 @@ import {DeleteProductComponent} from "./components/products/delete-products/dele
 import {EditUserComponent} from "./components/users/edit-users/edit-users.component";
 import {DeleteUserComponent} from "./components/users/delete-users/delete-users.component";
 import {UsersComponent} from "./components/users/users.component";
+import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
+import {MockDataService} from "./core/mocks/data.mock.service";
 
 
 
@@ -88,7 +90,8 @@ import {UsersComponent} from "./components/users/users.component";
     FormsModule,
     MatSnackBarModule,
     MatAutocompleteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientInMemoryWebApiModule.forRoot(MockDataService)
   ],
   providers: [
     HttpClient,

@@ -7,43 +7,25 @@ import {Product} from "../interfaces/Product";
   providedIn: 'root'
 })
 export class ProductMockService extends ProductService {
-  products: Array<Product> = [];
-  currentId: number = 0;
+  url: string = 'api/products/'
 
-  create(product: Product, dealerCode: number | null): Observable<Product> {
-    if (product.code === undefined) {
-      product.code = this.currentId++;
-    }
-    product.dealerCode = dealerCode
-    this.products.push(product);
-    return of(product);
+  create(authorizedChannel: Product, dealerCode: number | null): Observable<Product> {
+    return this.http.post<Product>(this.url, authorizedChannel)
   }
 
   delete(code: number): Observable<boolean> {
-    let deleted: boolean = false;
-    let idx: number = this.products.findIndex(x => x.code === code)
-    if (idx > -1) {
-      this.products.splice(idx, 1)
-      deleted = true
-    }
-    return of(deleted);
+    return this.http.delete<boolean>(`${this.url}${code}`)
   }
 
   find(): Observable<Product[]> {
-    return of(this.products);
+    return this.http.get<Array<Product>>(`${this.url}`)
   }
 
   findOne(code: number): Observable<Product> {
-    let product: Product = <Product>this.products.find(x => x.code === code)
-    return of(product);
+    return this.http.get<Product>(`${this.url}${code}`)
   }
 
   update(product: Product): Observable<Product> {
-    let idx: number = this.products.findIndex(x => x.code === product.code)
-    if (idx > -1) {
-      this.products[idx] = product
-    }
-    return of(product);
+    return this.http.put<Product>(`${this.url}${product.code}`, product)
   }
-
 }

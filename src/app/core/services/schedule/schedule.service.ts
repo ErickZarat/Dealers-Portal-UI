@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class ScheduleService implements RestService<Schedule> {
 
-  constructor(private http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
+  constructor(protected http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
     this.endpoint = `${endpoint}/schedules`
   }
 

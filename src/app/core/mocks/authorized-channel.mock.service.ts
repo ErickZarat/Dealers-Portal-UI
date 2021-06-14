@@ -7,43 +7,26 @@ import {AuthorizedChannel} from "../interfaces/AuthorizedChannel";
   providedIn: 'root'
 })
 export class AuthorizedChannelMockService extends AuthorizedChannelService {
-  authorizedChannels: Array<AuthorizedChannel> = [];
-  currentId: number = 0;
+  url: string = 'api/authorized-channels/'
 
   create(authorizedChannel: AuthorizedChannel, dealerCode: number | null): Observable<AuthorizedChannel> {
-    if (authorizedChannel.code === undefined) {
-      authorizedChannel.code = this.currentId++;
-    }
-    authorizedChannel.dealerCode = dealerCode
-    this.authorizedChannels.push(authorizedChannel);
-    return of(authorizedChannel);
+    return this.http.post<AuthorizedChannel>(this.url, authorizedChannel)
   }
 
   delete(code: number): Observable<boolean> {
-    let deleted: boolean = false;
-    let idx: number = this.authorizedChannels.findIndex(x => x.code === code)
-    if (idx > -1) {
-      this.authorizedChannels.splice(idx, 1)
-      deleted = true
-    }
-    return of(deleted);
+    return this.http.delete<boolean>(`${this.url}${code}`)
   }
 
   find(): Observable<AuthorizedChannel[]> {
-    return of(this.authorizedChannels);
+    return this.http.get<Array<AuthorizedChannel>>(`${this.url}`)
   }
 
   findOne(code: number): Observable<AuthorizedChannel> {
-    let authorizedChannel: AuthorizedChannel = <AuthorizedChannel>this.authorizedChannels.find(x => x.code === code)
-    return of(authorizedChannel);
+    return this.http.get<AuthorizedChannel>(`${this.url}${code}`)
   }
 
   update(authorizedChannel: AuthorizedChannel): Observable<AuthorizedChannel> {
-    let idx: number = this.authorizedChannels.findIndex(x => x.code === authorizedChannel.code)
-    if (idx > -1) {
-      this.authorizedChannels[idx] = authorizedChannel
-    }
-    return of(authorizedChannel);
+    return this.http.put<AuthorizedChannel>(`${this.url}${authorizedChannel.code}`, authorizedChannel)
   }
 
 }

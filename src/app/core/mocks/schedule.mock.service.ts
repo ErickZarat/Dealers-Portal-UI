@@ -7,42 +7,29 @@ import {Schedule} from "../interfaces/Schedule";
   providedIn: 'root'
 })
 export class ScheduleMockService extends ScheduleService {
-  schedules: Array<Schedule> = [{id: 1, initialHour: "08:00", endHour: "10:00"}];
-  currentId: number = 0;
+
+  url: string = 'api/schedules/'
 
   create(schedule: Schedule): Observable<Schedule> {
-    if (schedule.id === undefined) {
-      schedule.id = this.currentId++;
-    }
-    this.schedules.push(schedule);
-    return of(schedule);
+    return this.http.post<Schedule>(this.url, schedule)
   }
 
   delete(code: number): Observable<boolean> {
-    let deleted: boolean = false;
-    let idx: number = this.schedules.findIndex(x => x.id === code)
-    if (idx > -1) {
-      this.schedules.splice(idx, 1)
-      deleted = true
-    }
-    return of(deleted);
+    return this.http.delete<boolean>(`${this.url}${code}`)
   }
 
   find(): Observable<Schedule[]> {
-    return of(this.schedules);
+    return this.http.get<Schedule[]>(this.url)
   }
 
   findOne(code: number): Observable<Schedule> {
-    let schedule: Schedule = <Schedule>this.schedules.find(x => x.id === code)
-    return of(schedule);
+    return this.http.get<Schedule>(`${this.url}${code}`)
   }
 
   update(schedule: Schedule): Observable<Schedule> {
-    let idx: number = this.schedules.findIndex(x => x.id === schedule.id)
-    if (idx > -1) {
-      this.schedules[idx] = schedule
-    }
-    return of(schedule);
+    if (schedule.id)
+      return this.http.put<Schedule>(`${this.url}${schedule.id}`, schedule)
+    return of();
   }
 
 }

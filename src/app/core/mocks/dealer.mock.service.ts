@@ -7,42 +7,26 @@ import {Dealer} from "../interfaces/Dealer";
   providedIn: 'root'
 })
 export class DealerMockService extends DealerService {
-  dealers: Array<Dealer> = [];
-  currentId: number = 0;
+  url: string = 'api/dealers/'
 
   create(dealer: Dealer): Observable<Dealer> {
-    if (dealer.code === undefined) {
-      dealer.code = this.currentId++;
-    }
-    this.dealers.push(dealer);
-    return of(dealer);
+    return this.http.post<Dealer>(this.url, dealer)
   }
 
   delete(code: number): Observable<boolean> {
-    let deleted: boolean = false;
-    let idx: number = this.dealers.findIndex(x => x.code === code)
-    if (idx > -1) {
-      this.dealers.splice(idx, 1)
-      deleted = true
-    }
-    return of(deleted);
+    return this.http.delete<boolean>(`${this.url}${code}`)
   }
 
   find(): Observable<Dealer[]> {
-    return of(this.dealers);
+    return this.http.get<Array<Dealer>>(`${this.url}`)
   }
 
   findOne(code: number): Observable<Dealer> {
-    let dealer: Dealer = <Dealer>this.dealers.find(x => x.code === code)
-    return of(dealer);
+    return this.http.get<Dealer>(`${this.url}${code}`)
   }
 
   update(dealer: Dealer): Observable<Dealer> {
-    let idx: number = this.dealers.findIndex(x => x.code === dealer.code)
-    if (idx > -1) {
-      this.dealers[idx] = dealer
-    }
-    return of(dealer);
+    return this.http.put<Dealer>(`${this.url}${dealer.code}`, dealer)
   }
 
 }

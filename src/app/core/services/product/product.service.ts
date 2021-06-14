@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class ProductService implements RestService<Product> {
 
-  constructor(private http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
+  constructor(protected http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
     this.endpoint = `${endpoint}/products`
   }
 

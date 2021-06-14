@@ -7,43 +7,25 @@ import {User} from "../interfaces/User";
   providedIn: 'root'
 })
 export class UserMockService extends UserService {
-  users: Array<User> = [];
-  currentId: number = 0;
+  url: string = 'api/users/'
 
   create(user: User, dealerCode: number | null): Observable<User> {
-    if (user.code === undefined) {
-      user.code = this.currentId++;
-    }
-    user.dealerCode = dealerCode
-    this.users.push(user);
-    return of(user);
+    return this.http.post<User>(this.url, user)
   }
 
   delete(code: number): Observable<boolean> {
-    let deleted: boolean = false;
-    let idx: number = this.users.findIndex(x => x.code === code)
-    if (idx > -1) {
-      this.users.splice(idx, 1)
-      deleted = true
-    }
-    return of(deleted);
+    return this.http.delete<boolean>(`${this.url}${code}`)
   }
 
   find(): Observable<User[]> {
-    return of(this.users);
+    return this.http.get<Array<User>>(`${this.url}`)
   }
 
   findOne(code: number): Observable<User> {
-    let user: User = <User>this.users.find(x => x.code === code)
-    return of(user);
+    return this.http.get<User>(`${this.url}${code}`)
   }
 
   update(user: User): Observable<User> {
-    let idx: number = this.users.findIndex(x => x.code === user.code)
-    if (idx > -1) {
-      this.users[idx] = user
-    }
-    return of(user);
+    return this.http.put<User>(`${this.url}${user.code}`, user)
   }
-
 }

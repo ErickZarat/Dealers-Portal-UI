@@ -9,7 +9,7 @@ import {RestService} from "../rest.service";
 })
 export class UserService implements RestService<User> {
 
-  constructor(private http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
+  constructor(protected http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
     this.endpoint = `${endpoint}/users`
   }
 
