@@ -29,9 +29,8 @@ export class AuthorizedChannelMockService extends AuthorizedChannelService {
     return of(deleted);
   }
 
-  find(dealerCode: number | null): Observable<AuthorizedChannel[]> {
-    let authorizedChannels: Array<AuthorizedChannel> = this.authorizedChannels.filter(x => x.dealerCode === dealerCode)
-    return of(authorizedChannels);
+  find(): Observable<AuthorizedChannel[]> {
+    return of(this.authorizedChannels);
   }
 
   findOne(code: number): Observable<AuthorizedChannel> {

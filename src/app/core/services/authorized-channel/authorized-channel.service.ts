@@ -11,7 +11,7 @@ import {Observable} from "rxjs";
 export class AuthorizedChannelService implements RestService<AuthorizedChannel> {
 
   constructor(private http: HttpClient, @Inject('apiEndpoint') private endpoint: String) {
-    this.endpoint = `${endpoint}/authorizedChannels`
+    this.endpoint = `${endpoint}/authorized-channels`
   }
 
   create(authorizedChannel: AuthorizedChannel, dealerCode: number | null): Observable<AuthorizedChannel> {
@@ -23,9 +23,8 @@ export class AuthorizedChannelService implements RestService<AuthorizedChannel> 
     return this.http.delete<boolean>(`${this.endpoint}/${code}`)
   }
 
-  find(dealerCode: number | null): Observable<AuthorizedChannel[]> {
-    let code: number = dealerCode === null ? 0: dealerCode;
-    return this.http.get<Array<AuthorizedChannel>>(`${this.endpoint}`, {params:{dealerCode: code}})
+  find(): Observable<AuthorizedChannel[]> {
+    return this.http.get<Array<AuthorizedChannel>>(`${this.endpoint}`)
   }
 
   findOne(code: number): Observable<AuthorizedChannel> {

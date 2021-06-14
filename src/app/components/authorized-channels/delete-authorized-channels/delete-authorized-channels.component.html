@@ -1,0 +1,9 @@
+<form class="form-container" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput value="{{authorizedChannel.name}}" readonly>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="warn">Delete</button>
+
+</form>

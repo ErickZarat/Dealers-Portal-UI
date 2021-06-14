@@ -10,12 +10,18 @@ import {EditDealerComponent} from "./components/dealers/edit-dealer/edit-dealer.
 import {DeleteDealerComponent} from "./components/dealers/delete-dealer/delete-dealer.component";
 import {EditScheduleComponent} from "./components/schedules/edit-schedule/edit-schedule.component";
 import {DeleteScheduleComponent} from "./components/schedules/delete-schedule/delete-schedule.component";
+import {EditAuthorizedChannelComponent} from "./components/authorized-channels/edit-authorized-channels/edit-authorized-channels.component";
+import {DeleteAuthorizedChannelComponent} from "./components/authorized-channels/delete-authorized-channels/delete-authorized-channels.component";
 
 
 let routes: Routes;
 routes = [
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'authorized_channels', component: AuthorizedChannelsComponent},
+  {path: 'authorized_channels', component: AuthorizedChannelsComponent, children: [
+      { path: 'edit/:code', component: EditAuthorizedChannelComponent },
+      { path: 'delete/:code', component: DeleteAuthorizedChannelComponent },
+    ]
+  },
   {path: 'products', component: ProductsComponent},
   {path: 'users', component: UsersComponent},
   {
@@ -24,7 +30,7 @@ routes = [
       { path: 'delete/:code', component: DeleteDealerComponent },
     ]
   },
-  {path: 'schedules', component: SchedulesComponent,children: [
+  {path: 'schedules', component: SchedulesComponent, children: [
       { path: 'edit/:code', component: EditScheduleComponent },
       { path: 'delete/:code', component: DeleteScheduleComponent },
     ]

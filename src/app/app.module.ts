@@ -40,6 +40,8 @@ import { DeleteDealerComponent } from './components/dealers/delete-dealer/delete
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {EditScheduleComponent} from "./components/schedules/edit-schedule/edit-schedule.component";
 import {DeleteScheduleComponent} from "./components/schedules/delete-schedule/delete-schedule.component";
+import {EditAuthorizedChannelComponent} from "./components/authorized-channels/edit-authorized-channels/edit-authorized-channels.component";
+import {DeleteAuthorizedChannelComponent} from "./components/authorized-channels/delete-authorized-channels/delete-authorized-channels.component";
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import {DeleteScheduleComponent} from "./components/schedules/delete-schedule/de
     EditDealerComponent,
     DeleteDealerComponent,
     EditScheduleComponent,
-    DeleteScheduleComponent
+    DeleteScheduleComponent,
+    EditAuthorizedChannelComponent,
+    DeleteAuthorizedChannelComponent
   ],
   imports: [
     BrowserModule,
